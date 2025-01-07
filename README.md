@@ -1,7 +1,6 @@
-For backend:
-cd backend
-python3 manage.py runserver 127.0.0.1:15000
+This is the new OCF website (testing phase), written with Django and Vite+React
 
-For frontend:
-cd frontend
-npm run dev
+##For Development##
+Run setup.sh to fetch dependency
+
+Run start.sh to start developmen server
