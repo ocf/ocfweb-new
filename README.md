@@ -1,6 +1,21 @@
-This is the new OCF website (testing phase), written with Django and Vite+React
+# OCF Website (Testing Phase)
 
-##For Development##
-Run setup.sh to fetch dependency
+This is the **new OCF website**, built with **Django** and **Vite + React**.
 
-Run start.sh to start developmen server
+---
+
+## Development Guide
+
+### 1. Set Up Dependencies
+To fetch all dependencies:
+
+```bash
+./setup.sh
+```
+
+### 2. Set Up Dependencies
+To start development server:
+
+```bash
+./start.sh
+```
