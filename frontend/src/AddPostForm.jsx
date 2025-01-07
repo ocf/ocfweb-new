@@ -70,7 +70,7 @@ function AddPostForm({ onPostAdded }) {
 // Optional inline styling
 const styles = {
   formContainer: {
-    border: '1px solid #ddd',
+    border: '1px solid #333',
     borderRadius: '4px',
     padding: '16px',
     maxWidth: '400px',

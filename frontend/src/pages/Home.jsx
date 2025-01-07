@@ -1,33 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import AddPostForm from './AddPostForm';
-import Navbar from './components/Navbar';
-
-function App() {
-  const [posts, setPosts] = useState([]);
-
-  // Fetch posts on mount
-  useEffect(() => {
-    fetchPosts();
-  }, []);
-
-  const fetchPosts = async () => {
-    try {
-      const response = await axios.get('http://127.0.0.1:15000/api/posts/');
-      setPosts(response.data);
-    } catch (error) {
-      console.error('Error fetching posts:', error);
-    }
-  };
-
-  const handlePostAdded = (newPost) => {
-    // Option 1: Refetch all posts
-    // fetchPosts();
-
-    // Option 2: Append new post to state
-    setPosts((prevPosts) => [newPost, ...prevPosts]);
-  };
-
+function Home() {
   return (
     <div>
       <body>
@@ -40,7 +11,15 @@ function App() {
               We're passionate about open source and free software.
             </p>
           </div>
-          <div></div>
+          <div>
+            <center>
+            <img
+                alt="Your Company"
+                src="../src/assets/penguin-swing.svg"
+                className="mx-5 h-80 w-auto"
+              />
+              </center>
+          </div>
         </div>
         <div className="h-screen mx-0 px-40 bg-slate-200 grid grid-cols-3 gap-4">
           <div className="mt-4 py-5 max-w-7xl px-2 sm:px-6 lg:px-8 bg-slate-100">
@@ -71,5 +50,5 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
 
