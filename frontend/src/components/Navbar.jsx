@@ -2,7 +2,7 @@ import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuIt
 import { ArrowRightEndOnRectangleIcon, Bars3Icon, ChevronDownIcon, XMarkIcon, UserCircleIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Staff Hours', href: '#', current: false, id: 0 },
+  { name: 'Staff Hours', href: '/staff-hours', current: false, id: 0 },
   { name: 'Documentation', href: '#', current: false, id: 1 },
   { name: 'Services', href: '#', current: false, id: 2 },
   { name: 'About', href: '#', current: false, id: 3 },

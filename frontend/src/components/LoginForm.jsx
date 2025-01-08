@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-function AddPostForm({ onPostAdded }) {
+function LoginForm({ onPostAdded }) {
   // Local state for the new post
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [user, setUser] = useState('');
+  const [pass, setPass] = useState('');
 
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Basic validation (optional)
-    if (!title || !content) {
-      alert('Please fill out both title and content.');
+    if (!user || !pass) {
+      alert('Username and password both required');
       return;
     }
 
     try {
       // Make POST request to Django backend
-      const response = await axios.post('http://127.0.0.1:15000/log/login/', {
+      const response = await axios.post('http://127.0.0.1:15000/api/posts/', {
         title,
         content,
       });
@@ -32,15 +32,15 @@ function AddPostForm({ onPostAdded }) {
       setTitle('');
       setContent('');
     } catch (error) {
-      alert('Error creating post:', error);
+      console.error('Error creating post:', error);
     }
   };
 
   return (
     <div style={styles.formContainer}>
       <h2>Add a New Post</h2>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <div style={styles.formGroup}>
+      <form onSubmit={handleSubmit}>
+        <div>
           <label htmlFor="title">Title</label>
           <input
             style={styles.input}
@@ -50,7 +50,7 @@ function AddPostForm({ onPostAdded }) {
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        <div style={styles.formGroup}>
+        <div>
           <label htmlFor="content">Content</label>
           <textarea
             style={styles.textarea}
@@ -67,44 +67,5 @@ function AddPostForm({ onPostAdded }) {
   );
 }
 
-// Optional inline styling
-const styles = {
-  formContainer: {
-    border: '1px solid #333',
-    borderRadius: '4px',
-    padding: '16px',
-    maxWidth: '400px',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '12px',
-  },
-  formGroup: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '4px',
-  },
-  input: {
-    padding: '8px',
-    borderRadius: '4px',
-    border: '1px solid #ccc',
-  },
-  textarea: {
-    padding: '8px',
-    borderRadius: '4px',
-    border: '1px solid #ccc',
-    minHeight: '80px',
-  },
-  button: {
-    backgroundColor: '#007bff',
-    color: '#fff',
-    padding: '8px 12px',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-  },
-};
-
-export default AddPostForm;
+export default LoginForm;
 

@@ -695,8 +695,24 @@ video {
   height: 100vh;
 }
 
+.min-h-0{
+  min-height: 0px;
+}
+
 .min-h-80{
   min-height: 20rem;
+}
+
+.min-h-20{
+  min-height: 5rem;
+}
+
+.min-h-40{
+  min-height: 10rem;
+}
+
+.min-h-60{
+  min-height: 15rem;
 }
 
 .w-48{
@@ -872,6 +888,10 @@ video {
   padding-bottom: 0.75rem;
 }
 
+.pb-5{
+  padding-bottom: 1.25rem;
+}
+
 .pr-2{
   padding-right: 0.5rem;
 }
@@ -890,9 +910,19 @@ video {
   line-height: 1.5rem;
 }
 
+.text-lg{
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .text-sm{
   font-size: 0.875rem;
   line-height: 1.25rem;
+}
+
+.text-2xl{
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 
 .font-bold{

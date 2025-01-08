@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import AddPostForm from './AddPostForm';
+import LoginForm from '../components/LoginForm';
 
-function App() {
+function Login() {
   const [posts, setPosts] = useState([]);
 
   // Fetch posts on mount
@@ -30,7 +30,7 @@ function App() {
   return (
     <div style={{ margin: '20px' }}>
       <h1 class="text-2xl font-bold">My Blog</h1>
-      <AddPostForm onPostAdded={handlePostAdded} />
+      <LoginForm onPostAdded={handlePostAdded} />
       <h2>All Posts</h2>
       <ul>
         {posts.map((post) => (
@@ -43,5 +43,5 @@ function App() {
   );
 }
 
-export default App;
+export default Login;
 
