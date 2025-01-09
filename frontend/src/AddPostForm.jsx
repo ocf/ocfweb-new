@@ -18,7 +18,7 @@ function AddPostForm({ onPostAdded }) {
 
     try {
       // Make POST request to Django backend
-      const response = await axios.post('http://127.0.0.1:15000/log/login/', {
+      const response = await axios.post('http://supernova.ocf.berkeley.edu:8000/api/posts/', {
         title,
         content,
       });
@@ -32,79 +32,41 @@ function AddPostForm({ onPostAdded }) {
       setTitle('');
       setContent('');
     } catch (error) {
-      alert('Error creating post:', error);
+      alert('Error with POST:', error);
     }
   };
 
   return (
-    <div style={styles.formContainer}>
-      <h2>Add a New Post</h2>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <div style={styles.formGroup}>
-          <label htmlFor="title">Title</label>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <br/>
+        <div>
+          <p class="text-lg font-bold">OCF Username</p>
           <input
-            style={styles.input}
+            class="bg-slate-100"
             type="text"
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        <div style={styles.formGroup}>
-          <label htmlFor="content">Content</label>
-          <textarea
-            style={styles.textarea}
+        <div>
+          <p class="text-lg font-bold">Password</p>
+          <input
+            class="bg-slate-100"
             id="content"
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
         </div>
-        <button style={styles.button} type="submit">
-          Add Post
+        <br/>
+        <button class="bg-blue-500 hover:bg-blue-700 transition text-white font-bold py-2 px-4 rounded" type="submit">
+          Login
         </button>
       </form>
     </div>
   );
 }
-
-// Optional inline styling
-const styles = {
-  formContainer: {
-    border: '1px solid #333',
-    borderRadius: '4px',
-    padding: '16px',
-    maxWidth: '400px',
-  },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '12px',
-  },
-  formGroup: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '4px',
-  },
-  input: {
-    padding: '8px',
-    borderRadius: '4px',
-    border: '1px solid #ccc',
-  },
-  textarea: {
-    padding: '8px',
-    borderRadius: '4px',
-    border: '1px solid #ccc',
-    minHeight: '80px',
-  },
-  button: {
-    backgroundColor: '#007bff',
-    color: '#fff',
-    padding: '8px 12px',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-  },
-};
 
 export default AddPostForm;
 
